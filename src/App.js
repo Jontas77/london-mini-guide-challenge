@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import StratfordData from "./data/Stratford.json";
 
-function App() {
+// Import Components
+import Header from "./components/Header";
+import Dropdown from "./components/Dropdown";
+import NavBtns from "./components/NavBtns";
+import Table from "./components/Table";
+
+const App = () => {
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <Header />
+        <hr />
+        <Dropdown />
+        <hr/>
+        <NavBtns />
+        <Table data={StratfordData} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
