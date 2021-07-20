@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const TableData = ({ data }) => {
-    return data.pharmacies.map((entry, idx) => {
+ 
+    return data.map((entry, idx) => {
       const { name, phone, address, website } = entry;
      let id = [];
     id.push(entry)
-    console.log()
-     
+  
       return (
         <tr key={idx}>
           <th scope="row">{idx + 1}</th>

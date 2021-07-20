@@ -1,8 +1,8 @@
 import React from 'react';
 import TableData from './TableData';
+import Loader from "react-loader-spinner";
 
-const Table = ({ data }) => {
-    console.log(data)
+const Table = ({ data, loading }) => {
     return (
       <div className="table-responsive">
         <table className="table table-striped">
@@ -26,7 +26,25 @@ const Table = ({ data }) => {
             </tr>
           </thead>
           <tbody>
-            <TableData data={data} />
+            {!loading ? (
+              <tr>
+                <td colSpan="5">
+                  <h3 className="text-center">
+                    choose a city and category first
+                  </h3>
+                </td>
+              </tr>
+            ) : loading ? (
+              <TableData data={data} />
+            ) : (
+              <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                timeout={3000} 
+              />
+            )}
           </tbody>
         </table>
       </div>
