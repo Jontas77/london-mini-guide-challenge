@@ -8,13 +8,16 @@ const NavBtns = ({ cityList }) => {
 
   const categoryToggle = (e) => {
     let categoryVal = e.target.value;
-    fetch(`/${cityList}/${categoryVal}`)
-    .then(res => res.json())
-    .then(data => {
-      setCategory(data)
-      setLoading(true);
-    })
-    .catch(err => err = setError("Failed to fetch"))
+    fetch(
+      `https://stark-waters-37906.herokuapp.com/${cityList}/${categoryVal}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setCategory(data);
+        setLoading(true);
+      })
+      .catch((err) => (err = setError("Failed to fetch")));
+  
   }
 
     return (
